@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CaloriesCounter.Common.Infrastructure.Repositories.Hibernate\CaloriesCounter.Common.Infrastructure.Repositories.Hibernate.csproj" />
+    <ProjectReference Include="..\CaloriesCounter.CrossCutting.Logs\CaloriesCounter.CrossCutting.Logs.csproj" />
+    <ProjectReference Include="..\CaloriesCounter.CrossCutting.Transactions\CaloriesCounter.CrossCutting.Transactions.csproj" />
+    <ProjectReference Include="..\CaloriesCounter.CrossCutting\CaloriesCounter.CrossCutting.csproj" />
+  </ItemGroup>
+
+</Project>

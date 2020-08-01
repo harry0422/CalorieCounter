@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CaloriesCounter.Users.Application.Contract\CaloriesCounter.Users.Application.Contract.csproj" />
+    <ProjectReference Include="..\CaloriesCounter.Users.Domain\CaloriesCounter.Users.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
