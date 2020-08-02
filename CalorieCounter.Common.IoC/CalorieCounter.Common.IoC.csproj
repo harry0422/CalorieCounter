@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="FluentNHibernate" Version="2.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CalorieCounter.Common.Adapters.NetCore\CalorieCounter.Common.Adapters.NetCore.csproj" />
+    <ProjectReference Include="..\CalorieCounter.Common.NHibernateConfiguration\CalorieCounter.Common.NHibernateConfiguration.csproj" />
+    <ProjectReference Include="..\CalorieCounter.Common.Repositories.Hibernate\CalorieCounter.Common.Repositories.Hibernate.csproj" />
+    <ProjectReference Include="..\CalorieCounter.CrossCutting.Logs\CalorieCounter.CrossCutting.Logs.csproj" />
+    <ProjectReference Include="..\CalorieCounter.CrossCutting.Transactions\CalorieCounter.CrossCutting.Transactions.csproj" />
+    <ProjectReference Include="..\CalorieCounter.CrossCutting\CalorieCounter.CrossCutting.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Autofac.Extras.DynamicProxy" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CalorieCounter.CrossCutting\CalorieCounter.CrossCutting.csproj" />
+    <ProjectReference Include="..\CalorieCounter.Users.Application\CalorieCounter.Users.Application.csproj" />
+    <ProjectReference Include="..\CalorieCounter.Users.Repositories.NHibernate\CalorieCounter.Users.Repositories.NHibernate.csproj" />
+  </ItemGroup>
+
+</Project>

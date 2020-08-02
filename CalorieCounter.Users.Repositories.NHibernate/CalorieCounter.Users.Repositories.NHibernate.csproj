@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentNHibernate" Version="2.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CalorieCounter.Common.Domain\CalorieCounter.Common.Domain.csproj" />
+    <ProjectReference Include="..\CalorieCounter.Common.Repositories.Hibernate\CalorieCounter.Common.Repositories.Hibernate.csproj" />
+    <ProjectReference Include="..\CalorieCounter.Users.Domain\CalorieCounter.Users.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
