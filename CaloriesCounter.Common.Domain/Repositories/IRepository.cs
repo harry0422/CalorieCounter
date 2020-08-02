@@ -15,6 +15,5 @@ namespace CaloriesCounter.Common.Domain.Repositories
         void Insert(TEntity entity);
         void Update(TEntity entity);
         void Delete(TPrimaryKey id);
-        string GetNextId();
     }
 }

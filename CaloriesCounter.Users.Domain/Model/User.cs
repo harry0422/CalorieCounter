@@ -1,4 +1,5 @@
 ﻿using CaloriesCounter.Common.Domain.Model;
+using System;
 
 namespace CaloriesCounter.Users.Domain.Model
 {
@@ -10,12 +11,16 @@ namespace CaloriesCounter.Users.Domain.Model
             Password = password;
             Name = name;
             Age = age;
+            CreationDate = DateTime.Now;
+            Status = UserStatus.Active;
         }
 
         public string Email { get; set; }
         public string Password { get; set; }
         public string Name { get; set; }
         public string Age { get; set; }
+        public DateTime CreationDate { get; set; }
+        public UserStatus Status { get; set; }
 
         protected override void Validate()
         {

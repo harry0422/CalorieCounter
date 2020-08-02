@@ -15,7 +15,9 @@ namespace CaloriesCounter.Common.Infrastructure.Repositories.Hibernate
                 return Fluently.Configure()
                     .Database(PostgreSQLConfiguration.PostgreSQL82
                     .ConnectionString(connectionString))
-                    //.Mappings(c => c.FluentMappings.AddFromAssemblyOf<UserMap>())
+                    //.Mappings(c => c.FluentMappings
+                    //    .AddFromAssemblyOf<UserMapping>
+                    //    .AddFromAssemblyOf<UserMap>)
                     .ExposeConfiguration(cfg => { new SchemaExport(cfg).Create(false, true); })
                     .BuildSessionFactory();
             }
