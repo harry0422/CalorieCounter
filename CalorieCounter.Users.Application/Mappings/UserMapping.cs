@@ -1,4 +1,4 @@
-﻿using CalorieCounter.Users.Application.Contract;
+﻿using CalorieCounter.Users.Application.Contract.DTOs;
 using CalorieCounter.Users.Domain.Model;
 
 namespace CalorieCounter.Users.Application.Mappings
@@ -14,7 +14,13 @@ namespace CalorieCounter.Users.Application.Mappings
             dto.Email = user.Email;
             dto.Name = user.Name;
             dto.Age = user.Age;
-            dto.CreationDate = user.CreationDate.ToString("yyyy-MM-dd");
+            dto.Weight = user.Weight;
+            dto.Height = user.Height;
+            dto.Gender = user.Gender.ToString();
+            dto.DailyActivity = user.DailyActivity.Description;
+            dto.BMR = user.BMR;
+            dto.DailyCaloriesNeeded = user.DailyCaloriesNeeded;
+            dto.CreationDate = user.CreationDate.ToString("yyyy-MM-dd hh:mm:ss");
             dto.Status = user.Status.ToString();
 
             return dto;

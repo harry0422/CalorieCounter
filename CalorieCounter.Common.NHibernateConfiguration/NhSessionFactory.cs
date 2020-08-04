@@ -17,7 +17,7 @@ namespace CalorieCounter.Common.NHibernateConfiguration
                     .Database(PostgreSQLConfiguration.PostgreSQL82
                     .ConnectionString(connectionString))
                     .Mappings(c => c.FluentMappings.AddFromAssemblyOf<UserMapping>())
-                    .ExposeConfiguration(cfg => { new SchemaExport(cfg).Create(false, true); })
+                    //.ExposeConfiguration(cfg => { new SchemaExport(cfg).Create(false, true); })
                     .BuildSessionFactory();
             }
             catch (Exception e)

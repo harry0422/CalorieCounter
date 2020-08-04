@@ -1,4 +1,6 @@
-﻿namespace CalorieCounter.Users.Application.Contract
+﻿using CalorieCounter.Users.Application.Contract.DTOs;
+
+namespace CalorieCounter.Users.Application.Contract.Services
 {
     public interface IUserService
     {

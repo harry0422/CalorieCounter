@@ -67,6 +67,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalorieCounter.Users.IoC", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalorieCounter.Common.Adapters.NetCore", "CalorieCounter.Common.Adapters.NetCore\CalorieCounter.Common.Adapters.NetCore.csproj", "{2CE7D67D-70B5-42E9-A54D-DBD4130E125A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalorieCounter", "CalorieCounter\CalorieCounter.csproj", "{9D869E5D-2624-4564-8C8A-613742E06E28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -133,6 +135,10 @@ Global
 		{2CE7D67D-70B5-42E9-A54D-DBD4130E125A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CE7D67D-70B5-42E9-A54D-DBD4130E125A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CE7D67D-70B5-42E9-A54D-DBD4130E125A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D869E5D-2624-4564-8C8A-613742E06E28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D869E5D-2624-4564-8C8A-613742E06E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D869E5D-2624-4564-8C8A-613742E06E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D869E5D-2624-4564-8C8A-613742E06E28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -168,6 +174,7 @@ Global
 		{4E0F07DD-4382-426F-A379-BD09D20CC6FB} = {51F154FF-1BEF-4620-A685-A588F6DB732D}
 		{523C6792-A11C-4CF2-A967-AE862C0835F0} = {DF54CB2A-CB59-4843-83BE-81B6706B6309}
 		{2CE7D67D-70B5-42E9-A54D-DBD4130E125A} = {51F154FF-1BEF-4620-A685-A588F6DB732D}
+		{9D869E5D-2624-4564-8C8A-613742E06E28} = {B1514292-4C9B-4893-B637-A7EE68C88440}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FF5B35B5-F142-45A6-B2E8-C59B5F18A023}

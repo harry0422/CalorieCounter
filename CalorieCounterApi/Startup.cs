@@ -51,6 +51,12 @@ namespace CalorieCounterApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(builder => {
+                builder.WithOrigins("http://localhost:59089");
+                builder.AllowAnyMethod();
+                builder.AllowAnyHeader();
+            });
+
             app.UseRouting();
 
             app.UseAuthorization();

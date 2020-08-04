@@ -1,6 +1,6 @@
 using System;
 
-namespace CalorieCounterApi
+namespace CalorieCounter
 {
     public class WeatherForecast
     {

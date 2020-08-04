@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace CalorieCounterApi.Controllers
+namespace CalorieCounter.Controllers
 {
     [ApiController]
     [Route("[controller]")]

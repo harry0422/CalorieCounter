@@ -1,4 +1,4 @@
-﻿namespace CalorieCounter.Users.Application.Contract
+﻿namespace CalorieCounter.Users.Application.Contract.DTOs
 {
     public class UserIdDto
     {

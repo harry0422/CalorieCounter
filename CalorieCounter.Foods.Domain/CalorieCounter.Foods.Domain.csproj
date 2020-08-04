@@ -5,7 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Model\" />
+    <Folder Include="BusinessRules\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CalorieCounter.Common.Domain\CalorieCounter.Common.Domain.csproj" />
   </ItemGroup>
 
 </Project>

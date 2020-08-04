@@ -1,6 +1,6 @@
-﻿namespace CalorieCounterApi.DTOs
+﻿namespace CalorieCounter.Users.Application.Contract.DTOs
 {
-    public class CreateUserRequest
+    public class CreateUserDto
     {
         public string Email { get; set; }
         public string Password { get; set; }

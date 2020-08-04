@@ -1,4 +1,5 @@
-﻿using CalorieCounter.Users.Application.Contract;
+﻿using CalorieCounter.Users.Application.Contract.DTOs;
+using CalorieCounter.Users.Application.Contract.Services;
 using CalorieCounterApi.DTOs;
 using CalorieCounterApi.Mappings;
 using Microsoft.AspNetCore.Mvc;
@@ -23,7 +24,7 @@ namespace CalorieCounterApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            throw new NotImplementedException();
+            return Ok();
         }
 
         // GET api/users/5
@@ -57,20 +58,6 @@ namespace CalorieCounterApi.Controllers
             {
                 return StatusCode(500, new ErrorResponse(e));
             }
-        }
-
-        // PUT api/users/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-            throw new NotImplementedException();
-        }
-
-        // DELETE api/users/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
         }
     }
 }
