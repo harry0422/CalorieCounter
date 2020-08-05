@@ -2,7 +2,7 @@
 {
     public interface IEncryptionProvider
     {
-        string Encrypt(string text);
-        string Decript(string encryptedText);
+        string HashPassword(string password);
+        bool ValidatePassword(string password, string correctHash);
     }
 }

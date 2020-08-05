@@ -7,13 +7,6 @@ namespace CalorieCounter.Users.Repositories.NHibernate
 {
     public class UserRepository : NhRepositoryBase<User, string>, IUserRepository
     {
-        public User GetBy(string email, string password)
-        {
-            return Session.Query<User>()
-                .Where(x => x.Email == email && x.Password == password)
-                .FirstOrDefault();
-        }
-
         public User GetBy(string email)
         {
             return Session.Query<User>()

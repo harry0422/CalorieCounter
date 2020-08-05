@@ -1,5 +1,6 @@
 ﻿using CalorieCounter.Users.Application.Contract.DTOs;
 using CalorieCounter.Users.Application.Contract.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace CalorieCounterApi.Controllers
             _dailyActivityService = dailyActivityService;
         }
 
-        // GET: api/DailyActivities
+        [Authorize]
         [HttpGet]
         public ActionResult Get()
         {
@@ -27,7 +28,6 @@ namespace CalorieCounterApi.Controllers
             return Ok(dailyActivities);
         }
 
-        // GET api/DailyActivities/5
         [HttpGet("{id}")]
         public string Get(int id)
         {

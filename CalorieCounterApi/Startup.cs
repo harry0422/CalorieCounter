@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace CalorieCounterApi
 {
@@ -24,6 +26,21 @@ namespace CalorieCounterApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication("OAuth")
+                .AddJwtBearer("OAuth", config => 
+                {
+                    var secretBytes = Encoding.UTF8.GetBytes(GlobalConstants.Secret);
+                    var key = new SymmetricSecurityKey(secretBytes);
+
+                    config.TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidIssuer = GlobalConstants.Issuer,
+                        ValidAudience = GlobalConstants.Audiance,
+                        IssuerSigningKey = key
+
+                    };
+                }); 
+
             services.AddControllers();
         }
 
@@ -58,6 +75,8 @@ namespace CalorieCounterApi
             });
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

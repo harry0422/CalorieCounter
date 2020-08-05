@@ -30,8 +30,11 @@ namespace CalorieCounter.Users.Application.Services
 
         public UserDto GetUserBy(CredentialsDto dto)
         {
-            User user = _userRepository.GetBy(dto.Email, dto.Password);
-            if (user == null) throw new InvalidCredentialsException();
+            
+            User user = _userRepository.GetBy(dto.Email);
+            bool passwordIsValid = _encryptionProvider.ValidatePassword(dto.Password, user.Password);
+
+            if (!passwordIsValid) throw new InvalidCredentialsException();
 
             return user.ToDto();
         }
@@ -62,7 +65,7 @@ namespace CalorieCounter.Users.Application.Services
         private User CreateUserInstance(CreateUserDto dto)
         {
             string id = _identifierGenerator.GetIdentifier();
-            string encryptedPassword = _encryptionProvider.Encrypt(dto.Password);
+            string encryptedPassword = _encryptionProvider.HashPassword(dto.Password);
             Enum.TryParse(dto.Gender, out Gender gender);
             
             DailyActivity dailyActivity = _dailyActivityRepository.Get(dto.DailyActivityId);

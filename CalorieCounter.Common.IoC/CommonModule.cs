@@ -28,7 +28,7 @@ namespace CalorieCounter.Common.IoC
 
             builder.RegisterType<GuidIdentifierGenerator>().As<IIdentifierGenerator>();
 
-            builder.RegisterType<AesEncryptionProvider>().As<IEncryptionProvider>();
+            builder.RegisterType<PBKDF2EncryptionProvider>().As<IEncryptionProvider>();
         }
     }
 }

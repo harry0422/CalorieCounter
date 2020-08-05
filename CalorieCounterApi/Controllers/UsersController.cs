@@ -2,6 +2,7 @@
 using CalorieCounter.Users.Application.Contract.Services;
 using CalorieCounterApi.DTOs;
 using CalorieCounterApi.Mappings;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -20,14 +21,13 @@ namespace CalorieCounterApi.Controllers
             _userService = userService;
         }
 
-        // GET: api/users
         [HttpGet]
         public IActionResult Get()
         {
             return Ok();
         }
 
-        // GET api/users/5
+        [Authorize]
         [HttpGet("{id}")]
         public IActionResult Get(string id)
         {
@@ -44,7 +44,6 @@ namespace CalorieCounterApi.Controllers
            
         }
 
-        // POST api/users
         [HttpPost]
         public ActionResult Post(CreateUserRequest request)
         {
