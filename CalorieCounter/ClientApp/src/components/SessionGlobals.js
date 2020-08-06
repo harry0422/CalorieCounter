@@ -1,17 +1,17 @@
 ﻿export class SessionGlobals {
+
     static tokenInformation = {};
     static isLogedIn = false;
 
-    static Login(tokenInformation, redirectionPath) {
+    static Login(tokenInformation) {
         this.tokenInformation = tokenInformation;
         this.isLogedIn = true;
-        //Redirect.to(redirectionPath);
+        
     }
 
-    static Logout(redirectionPath) {
+    static Logout() {
         this.tokenInformation = {};
         this.isLogedIn = false;
-        //Redirect.to(redirectionPath);
     }
 
     static getAuthorizationToken() {

@@ -93,7 +93,8 @@ export class SingUp extends Component {
         );
 
         var tokenInformation = await ApiManager.getTokenInformation(this.state.email, this.state.password);
-        SessionGlobals.Login(tokenInformation, '/profile');
+        SessionGlobals.Login(tokenInformation);
+        this.props.history.push('/profile');
     }
 
     componentDidMount() {

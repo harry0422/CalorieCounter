@@ -34,14 +34,21 @@ export class Login extends Component {
             </div>
         );
     }
-    
+
+    componentDidMount() {
+        if (SessionGlobals.isLogedIn)
+            SessionGlobals.Logout();
+    }
+
     handleChange(event) {
         this.setState({ [event.target.name]: event.target.value });
     }
 
     async handleSubmit(event) {
         event.preventDefault();
+
         const tokenInformation = await ApiManager.getTokenInformation(this.state.email, this.state.password);
-        SessionGlobals.Login(tokenInformation, '/profile');
+        SessionGlobals.Login(tokenInformation);
+        this.props.history.push('/profile');
     }
 }
