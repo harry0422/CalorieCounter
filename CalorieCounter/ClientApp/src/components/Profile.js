@@ -1,4 +1,6 @@
 ﻿import React, { Component } from 'react';
+import { SessionGlobals } from './SessionGlobals'
+import { ApiManager } from './ApiManager';
 
 export class Profile extends Component {
     constructor(props) {
@@ -16,7 +18,7 @@ export class Profile extends Component {
                 <p>Age: {this.state.profile.age}</p>
                 <p>Weight: {this.state.profile.weight}</p>
                 <p>Height: {this.state.profile.height}</p>
-                <p>Gender: {this.state.profile.male}</p>
+                <p>Gender: {this.state.profile.gender}</p>
                 <p>Daily Activity: {this.state.profile.dailyActivity}</p>
                 <p>BMR: {this.state.profile.bmr}</p>
                 <p>Daily Calories Needed: {this.state.profile.dailyCaloriesNeeded}</p>
@@ -25,13 +27,15 @@ export class Profile extends Component {
     }
 
     componentDidMount() {
-        this.getProfile();
+        if (SessionGlobals.isLogedIn) {
+            this.getProfile();
+        } else {
+            window.location.replace('/login');
+        }
     }
 
     async getProfile() {
-        const response = await fetch('http://localhost:49585/users/' + this.props.match.params.userId);
-        const data = await response.json();
+        const data = await ApiManager.getUserProfile(SessionGlobals.tokenInformation.userId);
         this.setState({ profile: data });
-
     }
 }

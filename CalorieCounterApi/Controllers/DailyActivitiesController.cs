@@ -20,7 +20,6 @@ namespace CalorieCounterApi.Controllers
             _dailyActivityService = dailyActivityService;
         }
 
-        [Authorize]
         [HttpGet]
         public ActionResult Get()
         {

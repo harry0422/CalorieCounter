@@ -1,4 +1,6 @@
 ﻿import React, { Component } from 'react';
+import { SessionGlobals } from './SessionGlobals'
+import { ApiManager } from './ApiManager';
 
 export class SingUp extends Component {
     constructor(props) {
@@ -58,7 +60,7 @@ export class SingUp extends Component {
                         </select>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="dailyActivity">Gender</label>
+                        <label htmlFor="dailyActivity">Daily Activity</label>
                         <select className="form-control" name="dailyActivityId" value={this.state.value} onChange={this.handleChange} >
                             <option value="">Select an option.</option>
                             {this.state.dailyActivities.map(dailyActivity =>
@@ -74,35 +76,24 @@ export class SingUp extends Component {
 
     handleChange(event) {
         this.setState({ [event.target.name]: event.target.value });
-        console.log(event.target.name + ": " + event.target.value);
+        console.log(event.target.name + ' ' + event.target.value);
     }
 
-    handleSubmit(event) {
+    async handleSubmit(event) {
         event.preventDefault();
-        var request = this.getRequest();
+        await ApiManager.CreateUser(
+            this.state.email,
+            this.state.password,
+            this.state.name,
+            this.state.age,
+            this.state.weight,
+            this.state.height,
+            this.state.gender,
+            this.state.dailyActivityId
+        );
 
-        fetch('http://localhost:49585/users', {
-            headers: new Headers({
-                'Content-Type': 'application/json'
-            }), 
-            method: 'POST',
-            body: request,
-        });
-    }
-
-    getRequest() {
-        var object = {};
-
-        object['email'] = this.state.email;
-        object['password'] = this.state.password;
-        object['name'] = this.state.name;
-        object['age'] = parseInt(this.state.age);
-        object['weight'] = parseFloat(this.state.weight);
-        object['height'] = parseFloat(this.state.height);
-        object['gender'] = this.state.gender
-        object['dailyActivityId'] = parseInt(this.state.dailyActivityId);
-
-        return JSON.stringify(object);
+        var tokenInformation = await ApiManager.getTokenInformation(this.state.email, this.state.password);
+        SessionGlobals.Login(tokenInformation, '/profile');
     }
 
     componentDidMount() {
@@ -110,8 +101,7 @@ export class SingUp extends Component {
     }
 
     async getDailyActivities() {
-        const response = await fetch('http://localhost:49585/dailyactivities');
-        const data = await response.json();
+        const data = await ApiManager.getDailyActivities();
         this.setState({ dailyActivities: data });
     }
 }

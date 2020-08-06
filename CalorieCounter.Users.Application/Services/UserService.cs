@@ -30,10 +30,10 @@ namespace CalorieCounter.Users.Application.Services
 
         public UserDto GetUserBy(CredentialsDto dto)
         {
-            
             User user = _userRepository.GetBy(dto.Email);
-            bool passwordIsValid = _encryptionProvider.ValidatePassword(dto.Password, user.Password);
+            if (user == null) throw new InvalidCredentialsException();
 
+            bool passwordIsValid = _encryptionProvider.ValidatePassword(dto.Password, user.Password);
             if (!passwordIsValid) throw new InvalidCredentialsException();
 
             return user.ToDto();

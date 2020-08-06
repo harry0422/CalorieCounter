@@ -30,7 +30,7 @@ namespace CalorieCounterApi.Controllers
                 UserDto user = _userService.GetUserBy(new CredentialsDto(request.UserName, request.Password));
                 string token = CreateTokenFor(user);
 
-                return Ok(new { access_token = token });
+                return Ok(new AuthenticationResponse(token, user.Id));
             }
             catch (Exception e)
             {
