@@ -28,4 +28,9 @@ Intention is to follow Microsoft's dotnet best practices. Visit their dotnet/run
 
 **Note:** Some things have been left in such a way that it might not seem like the most correct way to keep simplicity and demonstrate the above mentioned points.
 
-## Instructions
+# Instructions
+1. Create the environment variable CALORIECOUNTER_DB and assign it the corresponding value to the postgres connection string. 
+Example:
+CALORIECOUNTER_DB = "Server=[server];Port=[port];Database=[database];User Id=[user];Password=[password];
+
+2. Run the create_database.sql script on the database
