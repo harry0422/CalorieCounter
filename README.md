@@ -4,7 +4,7 @@
 It is a personal project with the intention of demonstrating different programming practices both in the backend and in the frontend
 
 - Use aspect oriented programming using interceptors.
-- Test new project structure by dividing the bounded context from the beginning into separate folders.
+- Test new Domain Driven Desing project structure by dividing the bounded context from the beginning into separate folders.
 - Test a new control inversion framework compatible with the current version of Net Core on this date.
 - Test PBKDF2 for hashing passwords.
 # Used technology
