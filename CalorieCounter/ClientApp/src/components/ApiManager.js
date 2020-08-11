@@ -2,7 +2,7 @@
 
 export class ApiManager {
 
-    static baseUrl = 'http://localhost:49585';
+    static baseUrl = 'https://caloriecounterapi.azurewebsites.net';
 
     static async getTokenInformation(email, password) {
         const url = this.baseUrl + '/oauth/token';
@@ -25,9 +25,7 @@ export class ApiManager {
             body: request,
         });
 
-        var data = await response.json();
-
-        return data;
+        return response;
     }
 
     static async getUserProfile(userId) {

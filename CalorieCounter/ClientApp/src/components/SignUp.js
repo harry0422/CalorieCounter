@@ -2,7 +2,7 @@
 import { SessionGlobals } from './SessionGlobals'
 import { ApiManager } from './ApiManager';
 
-export class SingUp extends Component {
+export class SignUp extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -24,7 +24,7 @@ export class SingUp extends Component {
     render() {
         return (
             <div>
-                <h1 id="tabelLabel" >Sing up form</h1>
+                <h1 id="tabelLabel" >Sign up form</h1>
                 <p>Fill in the information requested below to create your profile</p>
                 <form onSubmit={this.handleSubmit} noValidate>
                     <div className="form-group">

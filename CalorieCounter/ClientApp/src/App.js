@@ -4,7 +4,7 @@ import { Layout } from './components/Layout';
 import { Home } from './components/Home';
 
 import { Profile } from './components/Profile';
-import { SingUp } from './components/SingUp';
+import { SignUp } from './components/SignUp';
 import { Login } from './components/Login';
 
 
@@ -18,7 +18,7 @@ export default class App extends Component {
       <Layout>
         <Route exact path='/'  component={Home} />
         <Route path='/profile/' component={Profile} />
-        <Route path='/singup' component={SingUp} />
+        <Route path='/signup' component={SignUp} />
         <Route path='/login' component={Login} />
       </Layout>
     );

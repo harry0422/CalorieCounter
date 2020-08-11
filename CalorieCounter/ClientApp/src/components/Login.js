@@ -1,6 +1,9 @@
 ﻿import React, { Component } from 'react';
+
 import { SessionGlobals } from './SessionGlobals'
 import { ApiManager } from './ApiManager';
+
+import './Login.css';
 
 export class Login extends Component {
     constructor(props) {
@@ -8,7 +11,8 @@ export class Login extends Component {
 
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            error: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -16,20 +20,22 @@ export class Login extends Component {
     }
 
     render() {
+        let error = '';
+        if (this.state.error !== '')
+            error = <div className="alert alert-danger" role="alert" > {this.state.error}</div>;
+
         return (
-            <div>
+            <div className="text-center login-container">
                 <h1 id="tabelLabel" >Login</h1>
-                <p>Fill in the information requested below to login.</p>
-                <form onSubmit={this.handleSubmit} noValidate>
-                    <div className="form-group">
-                        <label htmlFor="email">Email address</label>
-                        <input type="email" className="form-control" name="email" onChange={this.handleChange} />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Password</label>
-                        <input type="password" className="form-control" name="password" onChange={this.handleChange} />
-                    </div>
-                    <input type="submit" value="Login" />
+                
+                <form className="form-signin" onSubmit={this.handleSubmit} >
+                    {error}
+                    <label htmlFor="email" className="sr-only">Email address</label>
+                    <input type="email" className="form-control" placeholder="Email address" name="email" onChange={this.handleChange} required autoFocus />
+
+                    <label htmlFor="password" className="sr-only">Password</label>
+                    <input type="password" id="password" className="form-control" placeholder="Password" name="password" onChange={this.handleChange} required />
+                    <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                 </form>
             </div>
         );
@@ -47,8 +53,14 @@ export class Login extends Component {
     async handleSubmit(event) {
         event.preventDefault();
 
-        const tokenInformation = await ApiManager.getTokenInformation(this.state.email, this.state.password);
-        SessionGlobals.Login(tokenInformation);
-        this.props.history.push('/profile');
+        var response = await ApiManager.getTokenInformation(this.state.email, this.state.password)
+
+        if (response.status === 200) {
+            var tokenInformation = await response.json();
+            SessionGlobals.Login(tokenInformation);
+            this.props.history.push('/profile');
+        } else {
+            this.setState({ error: "Invalid credentials." });
+        }
     }
 }
