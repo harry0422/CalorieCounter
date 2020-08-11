@@ -7,14 +7,15 @@ export class SignUp extends Component {
         super(props);
         this.state = {
             dailyActivities: [],
-            email: "",
-            password: "",
-            name: "",
+            email: '',
+            password: '',
+            name: '',
             age: 0,
             weight: 0,
             height: 0,
-            gender: "",
-            dailyActivityId: 0
+            gender: '',
+            dailyActivityId: 0,
+            error: '',
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -22,11 +23,15 @@ export class SignUp extends Component {
     }
 
     render() {
+        let error = '';
+        if (this.state.error !== '')
+            error = <div className="alert alert-danger" role="alert" > {this.state.error}</div>;
+
         return (
             <div>
                 <h1 id="tabelLabel" >Sign up form</h1>
-                <p>Fill in the information requested below to create your profile</p>
                 <form onSubmit={this.handleSubmit} noValidate>
+                    {error}
                     <div className="form-group">
                         <label htmlFor="email">Email address</label>
                         <input type="email" className="form-control" name="email" onChange={this.handleChange} />
@@ -81,7 +86,7 @@ export class SignUp extends Component {
 
     async handleSubmit(event) {
         event.preventDefault();
-        await ApiManager.CreateUser(
+        var response = await ApiManager.CreateUser(
             this.state.email,
             this.state.password,
             this.state.name,
@@ -92,9 +97,18 @@ export class SignUp extends Component {
             this.state.dailyActivityId
         );
 
-        var tokenInformation = await ApiManager.getTokenInformation(this.state.email, this.state.password);
-        SessionGlobals.Login(tokenInformation);
-        this.props.history.push('/profile');
+        console.log(response.status);
+
+        if (response.status === 201) {
+            console.log("OK");
+            var tokenPromise = await ApiManager.getTokenInformation(this.state.email, this.state.password);
+            var tokenInformation = await tokenPromise.json();
+            SessionGlobals.Login(tokenInformation);
+            this.props.history.push('/profile');
+        } else {
+            var json = await response.json();
+            this.setState({ error: json.description });
+        }
     }
 
     componentDidMount() {

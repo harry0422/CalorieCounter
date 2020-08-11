@@ -62,13 +62,15 @@ export class ApiManager {
 
         console.log(request);
 
-        fetch(url, {
+        var response = fetch(url, {
             headers: new Headers({
                 'Content-Type': 'application/json'
             }),
             method: 'POST',
             body: request,
         });
+
+        return response;
     }
 
     static async getDailyActivities() {
