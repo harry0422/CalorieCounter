@@ -54,13 +54,13 @@ export class Login extends Component {
         event.preventDefault();
 
         var response = await ApiManager.getTokenInformation(this.state.email, this.state.password)
+        var tokenInformation = await response.json();
 
         if (response.status === 200) {
-            var tokenInformation = await response.json();
             SessionGlobals.Login(tokenInformation);
             this.props.history.push('/profile');
         } else {
-            this.setState({ error: "Invalid credentials." });
+            this.setState({ error: tokenInformation.description });
         }
     }
 }

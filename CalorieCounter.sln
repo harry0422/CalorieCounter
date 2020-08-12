@@ -69,7 +69,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalorieCounter.Common.Adapt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalorieCounter", "CalorieCounter\CalorieCounter.csproj", "{9D869E5D-2624-4564-8C8A-613742E06E28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalorieCounter.Common.Adapters.NetCore.Tests", "CalorieCounter.Common.Adapters.NetCore.Tests\CalorieCounter.Common.Adapters.NetCore.Tests.csproj", "{CE459369-5219-47CF-94E7-911A6498A6E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalorieCounter.Common.Adapters.NetCore.Tests", "CalorieCounter.Common.Adapters.NetCore.Tests\CalorieCounter.Common.Adapters.NetCore.Tests.csproj", "{CE459369-5219-47CF-94E7-911A6498A6E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalorieCounter.Common.NHibernateConfiguration.Tests", "CalorieCounter.Common.NHibernateConfiguration.Tests\CalorieCounter.Common.NHibernateConfiguration.Tests.csproj", "{0242B237-7062-4908-8A9F-6DE22E4E07E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -145,6 +147,10 @@ Global
 		{CE459369-5219-47CF-94E7-911A6498A6E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE459369-5219-47CF-94E7-911A6498A6E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE459369-5219-47CF-94E7-911A6498A6E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0242B237-7062-4908-8A9F-6DE22E4E07E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0242B237-7062-4908-8A9F-6DE22E4E07E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0242B237-7062-4908-8A9F-6DE22E4E07E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0242B237-7062-4908-8A9F-6DE22E4E07E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -182,6 +188,7 @@ Global
 		{2CE7D67D-70B5-42E9-A54D-DBD4130E125A} = {51F154FF-1BEF-4620-A685-A588F6DB732D}
 		{9D869E5D-2624-4564-8C8A-613742E06E28} = {B1514292-4C9B-4893-B637-A7EE68C88440}
 		{CE459369-5219-47CF-94E7-911A6498A6E2} = {51F154FF-1BEF-4620-A685-A588F6DB732D}
+		{0242B237-7062-4908-8A9F-6DE22E4E07E2} = {51F154FF-1BEF-4620-A685-A588F6DB732D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FF5B35B5-F142-45A6-B2E8-C59B5F18A023}
